@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Russo One', sans-serif;
+    text-align: center;
+    background-color: #333;
+}
+
+header{
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+}
+
+.title{
+    background-image: linear-gradient(90deg, #4530ff, #ff00bb);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3rem;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+main{
+    height: 430px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+#player-time{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+p{
+    font-size: 22px;
+    -webkit-text-stroke: 0.8px #000;
+    margin: 0;
+    padding: 0;
+    margin-top: 12px;
+}
+
+.container{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.board{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 316px;
+    height: 316px;
+    background-color: #000;
+    border-radius: 7px;
+    display: flex;
+    align-content: center;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+#animated-border{
+    position: absolute;
+    background-color: #000;
+    box-shadow: 0px 0px 5px 2px #000;
+    overflow: hidden;
+    width: 330px;
+    height: 330px;
+    display: inline-block;
+    margin-top: 40px;
+    border-radius: 7px;
+}
+
+/* ------- animation card ------- */
+
+@keyframes changeColor{
+    from{background-image: conic-gradient(#ff00bb 0deg, #ff00bb
+        90deg, transparent 130deg, transparent 180deg, #4530ff 
+        180deg, #4530ff 270deg, transparent 310deg, transparent 
+        360deg); transform: translate(-50%,-50%) rotate(-280deg);}
+    to{background-image: conic-gradient(#ff00bb 0deg, #ff00bb
+        90deg, transparent 130deg, transparent 180deg, #4530ff 
+        180deg, #4530ff 270deg, transparent 310deg, transparent 
+        360deg); transform: translate(-50%,-50%) rotate(-1000deg);}
+}
+
+#animated-border::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180%;
+    height: 160%;
+    animation-name: changeColor;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* ------- squares ------- */
+
+.square{
+    background-color: gray;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ------- Elements O and X ------- */
+.O{
+    position: relative;
+}
+
+.O::after{
+    font-family: 'Russo One', sans-serif;
+    color: #ff00bb;
+    -webkit-text-stroke: 1px #000;
+    position: absolute;
+    content: "O";
+    font-size: 65px;
+    line-height: 100px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.X{
+    position: relative;
+}
+
+.X::after{
+    font-family: 'Russo One', sans-serif;
+    color: #4530ff ;
+    -webkit-text-stroke: 1px #000;
+    position: absolute;
+    content: "X";
+    font-size: 65px;
+    line-height: 100px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* ------- Button ------- */
+
+#play{
+    background-image: linear-gradient(90deg, #4530ff 20%, #ff00bb);
+    font-size: 16px;
+    font-family: 'Russo One', sans-serif;
+    padding: 10px 30px 10px 30px;
+    border-radius: 7px;
+}
+
+#play:hover{
+
+    padding: 12px 32px 12px 32px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
